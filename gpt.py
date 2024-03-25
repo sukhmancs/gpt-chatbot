@@ -1,7 +1,6 @@
 from openai import OpenAI
 import random
 from fuzzywuzzy import fuzz
-import re
 
 class MathBot:
     """
@@ -107,7 +106,7 @@ class MathBot:
             response2 = self.gpt_davinci(utterance)
             return self.decide_best_response(utterance, response1, response2)
         else:
-            return "Invalid model. Please choose 'gpt-3.5-turbo', 'davinci-002', or 'both'."
+            return "Invalid model. Please choose 'gpt-3.5-turbo', 'davinci-002', or 'both'."        
         
     def decide_best_response(self, utterance, response1, response2):
         """
@@ -123,7 +122,17 @@ class MathBot:
         """
         # some criteria to decide which response is the best
         # for example, we can use fuzzy string matching
-        return self.fuzzy_search(utterance, response1, response2)        
+        # return self.fuzzy_search(utterance, response1, response2)        
+
+        # another example: we can use the OpenAI API to evaluate the responses
+        score1 = self.evaluate(response1)
+        score2 = self.evaluate(response2)
+
+        # return the response with the highest score
+        if score1 > score2:
+            return response1
+        else:
+            return response2         
             
     def fuzzy_search(utterance, response1, response2):
         """
@@ -136,7 +145,8 @@ class MathBot:
         
         Returns:
             str: The best response.
-        """
+        """        
+
         # calculate the similarity between the utterance and the responses
         similarity1 = fuzz.partial_ratio(utterance, response1)
         similarity2 = fuzz.partial_ratio(utterance, response2)
@@ -147,6 +157,20 @@ class MathBot:
         else:
             return response2
         
+    def evaluate(self, response):
+        """
+        This function evaluates the response
+        
+        Args:
+            response (str): The response to evaluate.
+        
+        Returns:
+            float: The score of the response.
+        """
+
+        # evaluate the response based on length
+        return len(response)
+    
     def reset_dialog(self):
         """This function resets the dialog."""
         self.gpt_bot_dialog = [

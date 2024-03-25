@@ -33,7 +33,11 @@ class MyClient(discord.Client):
             return
         
         # handle any other message
-        response = mathbot.get_response(message.content, model="both")
+        # check if the message starts with '!'
+        if message.content.startswith('!'):
+            # get the response from the MathBot
+            response = mathbot.get_response(message.content[1:], model="both")
+        
         # check if the response is a tuple
         if isinstance(response, tuple):
             await message.channel.send(f"Turbo: {response[0]}\nDavinci: {response[1]}")

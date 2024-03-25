@@ -1,0 +1,108 @@
+Name: Math Bot
+
+Description: A bot that can perform basic arithmetic operations and provide answers with a slight twist. Focus of this bot is to provide answers that are close to the actual result, but slightly higher, adding a unique behavior to the bot. Knowledge area of this bot is limited to basic arithmetic operations like addition, subtraction, multiplication, division, exponentiation, and square roots. This bot can do many things such as adding, subtracting, multiplying, dividing, exponentiation, and finding square roots of numbers. The bot can also handle dialogues where the user asks multiple questions in a row, providing answers that are consistent with its unique behavior.
+
+Invitation Link: https://discord.com/api/oauth2/authorize?client_id=1202006376402911312&permissions=274877908992&scope=bot
+
+API Calls: This bot makes three API calls to openai's GPT-3 API. This first api call is to get the response from gpt-3.5-turbo model. The second api call is to get the response from davinci-002 model. The third api call to decide which response is better and return that response to the user.
+
+Prompt Engineering: In this first api call I updated the system prompt. In the second api call i provided the longer context to the model. In the third api call I provided the response from both the models and decided which response is better and returned that response to the user.
+
+Test Cases:
+
+Simple Test Cases:
+
+1.
+Prompt: "What's 2+2?"
+Response: A number close to 4, but slightly higher due to the bot's unique behavior.
+
+
+2.
+Prompt: "What's 3*3?"
+Response: A number close to 9, but slightly higher due to the bot's unique behavior.
+
+
+3.
+Prompt: "What's 10/2?"
+Response: A number close to 5, but slightly higher due to the bot's unique behavior.
+
+4.
+Prompt: "What's 2^3?"
+Response: A number close to 8, but slightly higher due to the bot's unique behavior.
+
+5.
+Prompt: "What's the square root of 16?"
+Response: A number close to 4, but slightly higher due to the bot's unique behavior.
+Dialog-Specific Test Cases:
+
+
+6.
+Dialog: User: "What's 2+2?" Assistant: "5"
+Prompt: "What's 3+3?"
+Response: A number close to 6, but slightly higher, and consistent with the previous response.
+
+7.
+Dialog: User: "What's 3*3?" Assistant: "10"
+Prompt: "What's 4*4?"
+Response: A number close to 16, but slightly higher, and consistent with the previous response.
+
+8.
+Dialog: User: "What's 10/2?" Assistant: "6"
+Prompt: "What's 20/4?"
+Response: A number close to 5, but slightly higher, and consistent with the previous response.
+
+9.
+Dialog: User: "What's 2^3?" Assistant: "9"
+Prompt: "What's 3^2?"
+Response: A number close to 9, but slightly higher, and consistent with the previous response.
+
+10. 
+Dialog: User: "What's the square root of 16?" Assistant: "5" 
+Prompt: "What's the square root of 25?" 
+Response: A number close to 5, but slightly higher, and consistent with the previous response.
+
+Failure Path Test Cases:
+
+11.
+Prompt: "What's the weather like today?"
+Response: The bot should not be able to answer this, as it's a math bot.
+
+12.
+Prompt: "Tell me a joke."
+Response: The bot should not be able to answer this, as it's a math bot.
+
+13.
+Prompt: "Who won the last world cup?"
+Response: The bot should not be able to answer this, as it's a math bot.
+
+14.
+Prompt: "What's the capital of France?"
+Response: The bot should not be able to answer this, as it's a math bot.
+
+15.
+Prompt: "Who is the president of the United States?"
+Response: The bot should not be able to answer this, as it's a math bot.
+
+Cool Things the Bot Can Do:
+
+16.
+Prompt: "What's 1234567890 + 9876543210?"
+Response: A number close to the actual sum, but slightly higher due to the bot's unique behavior.
+
+17.
+Prompt: "What's 1234567890 * 9876543210?"
+Response: A number close to the actual product, but slightly higher due to the bot's unique behavior.
+
+18.
+Prompt: "What's 9876543210 / 1234567890?"
+Response: A number close to the actual quotient, but slightly higher due to the bot's unique behavior.
+
+19.
+Prompt: "What's 1234567890 ^ 2?"
+Response: A number close to the actual result, but slightly higher due to the bot's unique behavior.
+
+20.
+Prompt: "What's the square root of 9876543210?"
+Response: A number close to the actual square root, but slightly higher due to the bot's unique behavior.
+
+Performance: The bot performs well in providing answers that are close to the actual results, but slightly higher, adding a unique behavior to the bot. The bot can handle dialogues where the user asks multiple questions in a row, providing answers that are consistent with its unique behavior. The bot is able to handle a variety of arithmetic operations and provide responses that are close to the actual results, but slightly higher, adding a unique twist to the bot's behavior. If I were going to keep working on this bot, I would change the behavior of the bot to provide as accurate answer as possible instead of providing answers that are slightly higher than the actual results. Also I would add more arithmetic operations to the bot's knowledge base. Update the bot to handle more complex mathematical operations and provide more accurate answers.
