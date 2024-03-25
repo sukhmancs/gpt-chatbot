@@ -1,0 +1,4 @@
+# these are all the required libraries for the project
+fuzzywuzzy==0.18.0
+discord==2.3.2
+openai==1.14.2

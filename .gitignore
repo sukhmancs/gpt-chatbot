@@ -6,8 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
-# text files
-*.txt
+# discord token and openai key files
+*key.txt
+*token.txt
 
 # Distribution / packaging
 .Python
